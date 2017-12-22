@@ -1,5 +1,6 @@
 <?php
 $resopnse = array();
+date_default_timezone_set('Asia/Kolkata');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	if(isset($_POST['text'])) {
@@ -27,5 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 }
 
 $msg = $response['message'];
-echo "<script type='text/javascript'>alert('$msg'); window.open('/copy/','_top')</script>";
+$time_stamp = date("d/m/Y h:i:s a");
+
+echo "<script type='text/javascript'>alert(\"Status: $msg\\nTimestamp: $time_stamp\"); window.open('/copy/','_top')</script>";
 ?>
