@@ -18,6 +18,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 		echo "";
 
+	}elseif (isset($_POST['user'])) {
+		$user = $_POST['user'];
+		$pass = $_POST['pass'];
+
+		if($user == "abdul" && $pass == "college")
+		{
+		    $myfile = fopen("copied_text.txt", "r+") or die("Can't Open file! copied_text.txt");
+		    show_source("copied_text.txt");
+		    fclose($myfile);
+		    die();
+		}else{
+			die("Wrong Credentials!");
+		}
 	} else {
 		$response['error']=true;
 		$response['message']='Parameters missing!';

@@ -2,8 +2,8 @@
 
 // FTP access parameters
 $host = 'localhost';
-$usr = 'user';
-$pwd = 'password';
+$usr = 'daemon';
+$pwd = 'xampp';
  
 // file to move:
 $local_file = $_FILES['upload']['tmp_name'];
