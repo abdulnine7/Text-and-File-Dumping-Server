@@ -1,0 +1,167 @@
+body {
+      color: #4b0f31;
+	  background-color: #f1e5e6;
+      font-family: Ububtu, 'Helvetica Neue', Helvetica, Arial;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-tap-highlight-color: rgba(0,0,0,0);
+      -webkit-touch-callout: none;
+}
+
+a {
+	outline: none;
+	color: #d3394c;
+	text-decoration: none;
+}
+
+a:hover,
+a:focus {
+	color: #722040;
+}
+
+/* Header */
+
+.main-header {
+	padding: 2em 1em 4em;
+	text-align: center;
+}
+
+.main-header h1 {
+	margin: 0.5em 0 0;
+	letter-spacing: -1px;
+	font-size: 3em;
+	line-height: 1;
+}
+
+.main-header h1 span {
+	display: block;
+	padding: 0.5em 0 1em;
+	color: #999;
+	font-weight: normal;
+	font-size: 0.45em;
+}
+
+.container{
+	padding: 30px 25px;
+	border: 1px solid #999
+}
+
+textarea[name=text] {
+	font: Ubuntu;
+	background-color: #f1e5e6;
+	vertical-align: middle;
+	height: 200px;
+	width: 100%;
+	padding: 12px, 20px;
+	margin: 8px, 0;
+	display: inline-block;
+	border: 1px solid #4b0f31;
+	box-sizing: border-box;
+}
+
+input[type=file] {
+	font: Ubuntu;
+	background-color: #f1e5e6;
+	vertical-align: middle;
+	height: 45px;
+	width: 100%;
+	padding: 12px, 20px;
+	margin: 8px, 0;
+	display: inline-block;
+	border: 1px solid #BCAAA4;
+	box-sizing: border-box;
+}
+
+/* Content */
+
+.content {
+	width: 100%;
+	max-width: 800px;
+	text-align: center;
+	margin: 0 auto;
+	padding: 0 0 3em 0;
+	position:relative;
+}
+
+.content footer {
+	color: #b39295;
+	margin-top: 40px;
+}
+
+.content footer a:hover,
+.content footer a:focus {
+	color: #4b0f31;
+}
+
+.box {
+	background-color: #dfc8ca;
+	padding: 6.25rem 1.25rem;
+}
+
+.box + .box {
+	margin-top: 2.5rem;
+}
+
+/* Button */
+.mybutton {
+	display: inline-block;
+	position: relative;
+	background-color: #4CAF50;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 200px;
+}
+
+.mybutton:hover {
+    opacity: 0.7;
+}
+
+.mybutton.upload {
+  background-color: #795548;
+  width: 100%;
+}
+    
+.mybutton.paste {
+  background-color: #4285f4;
+  color: #fff;
+  width: 100%;
+}
+
+.mybutton.getdata {
+  background-color: #0f9d58;
+  color: #fff;
+}
+
+.mybutton.logout {
+  background-color: #f44336;
+  color: #fff;
+}
+
+/*File Container */
+.fileContainer{
+	border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+	padding: 1em;
+}
+
+footer{
+	text-align: center;
+	border-bottom: 5px solid #E0F2F1;
+	border-left: 5px solid #E0F2F1;
+	border-right: 5px solid #E0F2F1;
+
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 1rem;
+	background-color: #efefef;
+	text-align: center;
+}
