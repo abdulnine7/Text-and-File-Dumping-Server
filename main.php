@@ -53,12 +53,14 @@ else{
 	</div>
 
 	<div  class="box">
-		<form action="data.php" method="post" enctype="multipart/form-data">
+		<div class="my_wrapper">
+			<form action="data.php" method="post" enctype="multipart/form-data">
 			<p><input type="submit" class="mybutton getdata" value="Get Dumped Text" name="submit"></p>
 		</form>
 		<form action="logout.php" method="post" enctype="multipart/form-data">
 			<p><input type="submit" class="mybutton logout" value="Logout" name="submit"></p>
 		</form>
+		</div>
 	</div>
 
 	</div>

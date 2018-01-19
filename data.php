@@ -23,13 +23,33 @@ else{
 
 <head>
 	<title>Dumped Text Data</title>
-	<link rel="stylesheet" type="text/css" href="css/data_style.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
     <link href='https://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
-	<div id='data'>
-		<?php show_source("copied_text.txt"); ?>
+	<header class="main-header">
+		<h1>Dumped Text</h1>
+		<p>Follow on GitHub: <strong><a href="http://www.github.com/abdulnine7">Abdul Noushad Sheikh(abdulnine7)</a></strong></p>
+	</header>
+	<div class='content'>
+		<div class="box" >
+			<?php show_source("copied_text.txt"); ?>
+		</div>
+
+		<div  class="box">
+			<div class="my_wrapper">
+				<form action="main.php" method="post" enctype="multipart/form-data">
+				<p><input type="submit" class="mybutton getdata" value="⬅️  Back" name="submit"></p>
+			</form>
+			<form action="logout.php" method="post" enctype="multipart/form-data">
+				<p><input type="submit" class="mybutton logout" value="Logout" name="submit"></p>
+			</form>
+			</div>
+		</div>
+
 	</div>
+	<footer>Copyright Abdul Inc. 2018</footer>
+
 </body>
 </html>

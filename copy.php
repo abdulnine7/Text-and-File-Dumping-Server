@@ -30,5 +30,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 $msg = $response['message'];
 $time_stamp = date("d/m/Y h:i:s a");
 
-echo "<script type='text/javascript'>alert(\"Status: $msg\\nTimestamp: $time_stamp\"); window.open('/copy/','_top')</script>";
+echo "<script type='text/javascript'>alert(\"Status: $msg\\nTimestamp: $time_stamp\"); window.open('/copy/main.php','_top')</script>";
 ?>
