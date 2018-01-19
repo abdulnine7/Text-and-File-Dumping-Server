@@ -54,8 +54,11 @@ else{
 
 	<div  class="box">
 		<div class="my_wrapper">
-			<form action="data.php" method="post" enctype="multipart/form-data">
-			<p><input type="submit" class="mybutton getdata" value="Get Dumped Text" name="submit"></p>
+		<form action="data.php" method="post" enctype="multipart/form-data">
+			<p><input type="submit" class="mybutton getdata" value="Dumped Text" name="submit"></p>
+		</form>
+		<form action="datafile.php" method="post" enctype="multipart/form-data">
+			<p><input type="submit" class="mybutton getdata" value="Dumped Files" name="submit"></p>
 		</form>
 		<form action="logout.php" method="post" enctype="multipart/form-data">
 			<p><input type="submit" class="mybutton logout" value="Logout" name="submit"></p>

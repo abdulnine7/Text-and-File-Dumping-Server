@@ -39,8 +39,11 @@ else{
 
 		<div  class="box">
 			<div class="my_wrapper">
-				<form action="main.php" method="post" enctype="multipart/form-data">
-				<p><input type="submit" class="mybutton getdata" value="⬅️  Back" name="submit"></p>
+			<form action="datafile.php" method="post" enctype="multipart/form-data">
+				<p><input type="submit" class="mybutton getdata" value="Dumped Files" name="submit"></p>
+			</form>
+			<form action="main.php" method="post" enctype="multipart/form-data">
+				<p><input type="submit" class="mybutton getdata" value="⬅️  Back To Main" name="submit"></p>
 			</form>
 			<form action="logout.php" method="post" enctype="multipart/form-data">
 				<p><input type="submit" class="mybutton logout" value="Logout" name="submit"></p>
