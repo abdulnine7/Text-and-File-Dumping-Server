@@ -3,6 +3,8 @@ function phpAlert($msg) {
     echo '<script type="text/javascript">if (confirm("' . $msg . '")){document.location="index.html"}else{document.location="index.html"}</script>';
 }
 
+ini_set('session.cache_limiter','public');
+session_cache_limiter(false);
 session_start();
 
 if(isset($_SESSION['user']) && isset($_SESSION['pass'])){
@@ -29,7 +31,7 @@ else{
 <body>
 	<header class="main-header">
 		<h1>Text & File Dumping Server</h1>
-		<p>Follow on GitHub: <strong><a href="http://www.github.com/abdulnine7">Abdul Noushad Sheikh(abdulnine7)</a></strong></p>
+		<p>Follow On GitHub: <strong><a href="http://www.github.com/abdulnine7"> abdulnine7</a></strong></p>
 	</header>
 	​
 	<div class="content">
