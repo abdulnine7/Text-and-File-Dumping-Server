@@ -21,55 +21,111 @@ else{
 <html lang="en">
 
 <head>
-	<title>Insert data</title>
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-    <link href='https://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!--Style-->
+    <style>
+    .navbar{
+        margin-bottom:0;
+        border-radius:0;
+    }
+    input[type="file"]{
+    	padding-bottom: 40px;
+    }
+    textarea{
+    	min-height: 150px;
+    }
+    .footer {
+        bottom: 0;
+        margin: 0 auto !important;
+        text-align: center !important;
+        width: 100% !important;
+        height: 30px;
+        position: relative; 
+        padding-bottom: : 10px;
+        color: black;
+      }
+	</style>
 </head>
 
 
-
 <body>
-	<header class="main-header">
-		<h1>Text & File Dumping Server</h1>
-		<p>Follow On GitHub: <strong><a href="http://www.github.com/abdulnine7"> abdulnine7</a></strong></p>
-	</header>
+	<nav class="navbar navbar-inverse">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Text and File Dumping App</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active">
+            	<a href="#">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li>
+            	<a href="data.php">Dumped Text</a>
+            </li>
+            <li>
+            	<a href="datafile.php">Dumped Files</a>
+            </li>
+            <li>
+            	<a href="logout.php">Logout</a>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+	<div class="container">
+	<h1 class="page-header">Home</h1>
 	​
-	<div class="content">
-	<div class="box">
-		<h2>Paste the text here: </h2>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<form action="copy.php" method=post>
-			<textarea name="text" placeholder="Paste text here to dump." required></textarea>
-			<input type="submit" class="mybutton paste" value="Paste">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+          <h2 class="panel-title">Paste the text here:</h2>
+        </div>
+        <div class="panel-body">
+          <form action="copy.php" method=post>
+          	<div class="form-group">
+			<textarea name="text" class="form-control" placeholder="Paste text here to dump." required></textarea>
+			<br>
+			<input type="submit" class="form-control btn btn-info" value="Paste">
+			</div>
 		</form>
+        </div>
 	</div>
 
-	<div class="box">
-		<h2>Upload Files:</h2>
-		<form action="upload.php" method="post" enctype="multipart/form-data">
-
-			<p><input type="file" class="upload" name="fileToUpload[]" id="fileToUpload" data-multiple-caption="{count} files selected" multiple required></p>
-			<p><input type="submit" class="mybutton upload" value="Upload" name="submit"></p>
-		</form>
-
-	</div>
-
-	<div  class="box">
-		<div class="my_wrapper">
-		<form action="data.php" method="post" enctype="multipart/form-data">
-			<p><input type="submit" class="mybutton getdata" value="Dumped Text" name="submit"></p>
-		</form>
-		<form action="datafile.php" method="post" enctype="multipart/form-data">
-			<p><input type="submit" class="mybutton getdata" value="Dumped Files" name="submit"></p>
-		</form>
-		<form action="logout.php" method="post" enctype="multipart/form-data">
-			<p><input type="submit" class="mybutton logout" value="Logout" name="submit"></p>
-		</form>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+          <h2 class="panel-title">Upload Files:</h2>
+    </div>
+    <div class="panel-body">
+			<form action="upload.php" method="post" enctype="multipart/form-data">
+				<div class="form-group">
+					<input type="file" class="form-control" name="fileToUpload[]" data-multiple-caption="{count} files selected" multiple required>
+					<br>
+					<input type="submit" class="form-control btn btn-info" value="Upload" name="submit">
+				</div>
+			</form>
 		</div>
 	</div>
 
 	</div>
-
- <footer>Copyright Abdul Inc. 2018</footer>
+	<hr>
+	<footer class="footer">Copyright Abdul Inc. 2018</footer>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/bootstrap.min.js"></script>
 </body>
 </html>

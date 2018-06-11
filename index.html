@@ -1,34 +1,61 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
   <head>
-    <title>Abdul's Login Page</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link href='https://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Abdul's - Login Page</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!--Style-->
+    <style>
+      html, body {
+          height: 100%;
+      }
+
+      .container {
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+      canvas{
+        position: fixed;
+        z-index: -1;
+      }
+      .avatar{
+        width: 100%;
+      }
+      .footer {
+        bottom: 0;
+        margin: 0 auto !important;
+        text-align: center !important;
+        width: 100% !important;
+        height: 30px;
+        position: absolute; 
+        padding-bottom: : 10px;
+        color: white;
+      }
+    </style>
   </head>
   <body>
-  	
-    <div class="image_container">
-        <img src="avtar.png" alt="Avatar" class="avatar">
-    </div>
-
-    <form action="login.php" method="post">
-
-      <div class="login">
-        <div class="login-form">
-          <h3>Username:</h3>
-          <input type="text" placeholder="Username" name="user" required/><br>
-          <h3>Password:</h3>
-          <input type="password" placeholder="Password" name="pass" required/>
-          <br>
-          <input type="submit" value="Login" class="login-button"/>
-          <br>
-        </div>
+  	<canvas id="c"></canvas>
+    <div class="container">
+      <div class="jumbotron text-center">
+      <img src="avtar.png" alt="Login Page" class="avatar">
+      <hr>
+      <form name="login_form" action="login.php" method="post">
+          <div class="form-group">
+            <label class="sr-only">Enter your Password:</label> 
+            <input type="password" class="form-control" placeholder="Enter Your Password" name="password" required autofocus/>
+          </div>
+          <div class="form-group">
+            <input type="submit" class="btn btn-success btn-lg" value="Login"/>
+          </div>
+      </form>
       </div>
-
-    </form>
-    <!-- <div class="error-page">
-      <div class="try-again">Error: Try again?</div>
-    </div> -->
-    <footer>Copyright Abdul Inc. 2018</footer>
+    </div>
+    <footer class="footer">Copyright &copy; Abdul 2018</footer>
+    <script type="text/javascript" src="matrix.js"></script>
   </body>
 </html>

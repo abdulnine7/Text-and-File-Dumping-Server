@@ -19,7 +19,7 @@ else{
 // $fnames=glob("uploads/*.*");
 
 function getFileNames(){
-	$filenames;
+	$filenames = array();
 	$dir = "uploads";
 
 	// Open a directory, and read its contents
@@ -28,7 +28,8 @@ function getFileNames(){
 	  	$i = 0;
 	    while (($file = readdir($dh)) !== false){
 	    	if(!is_dir($file)){
-	    		$filenames[$i] = $file;
+	    		$filenames[$i]['name'] = $file;
+	    		$filenames[$i]['date'] = date("d F Y",filemtime("uploads/". $file));
 	      		$i++;
 	      	}
 	      //echo "filename:" . $file . "<br>";
@@ -36,7 +37,9 @@ function getFileNames(){
 	    closedir($dh);
 	  }
 	}
-	sort($filenames);
+	usort($filenames, function($a, $b) {
+  return new DateTime($b['date']) <=> new DateTime($a['date']);
+});
 	return $filenames;
 }
 
@@ -74,19 +77,68 @@ function formatSizeUnits($bytes) {
 <html lang="en">
 
 <head>
-	<title>Dumped Files</title>
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-    <link href='https://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dumped Files</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!--Style-->
+    <style>
+    .navbar{
+        margin-bottom:0;
+        border-radius:0;
+    }
+    .footer {
+        bottom: 0;
+        margin: 0 auto !important;
+        text-align: center !important;
+        width: 100% !important;
+        height: 30px;
+        position: relative; 
+        padding-bottom: : 10px;
+        color: black;
+      }
+	</style>
 </head>
 
 <body>
-	<header class="main-header">
-		<h1>Dumped Files</h1>
-		<p>Follow On GitHub: <strong><a href="http://www.github.com/abdulnine7"> abdulnine7</a></strong></p>
-	</header>
-	<div class='content'>
-		<div class="box" >
-			<table>
+	<nav class="navbar navbar-inverse">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="main.php">Text and File Dumping App</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li>
+            	<a href="main.php">Home</a>
+            </li>
+            <li>
+            	<a href="data.php">Dumped Text</a>
+            </li>
+            <li class="active">
+            	<a href="#">Dumped Files<span class="sr-only">(current)</span></a>
+            </li>
+            <li>
+            	<a href="logout.php">Logout</a>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+	<div class='container'>
+		<h1 class="page-header">Dumped Files</h1>
+			<table class="table table-striped table-bordered table-hover table-condensed">
 			  <tr>
 			    <th>Sr No. </th>
 			    <th width="60%">File Name</th>
@@ -95,37 +147,24 @@ function formatSizeUnits($bytes) {
 			  </tr>
 			  
 			<?php $i = 1;
-			$fnames = getFileNames();
-				foreach ($fnames as $name) {
+			$files = getFileNames();
+				foreach ($files as $file) {
 					echo "<tr>";
 					echo "<td>" . $i . "</td>";
-					echo "<td title=". $name .">" . "<a href=\"uploads/". $name . "\">" . $name . "</a></td>";
-					echo "<td>" . date("d F Y",filemtime("uploads/". $name)) . "</td>";
-					echo "<td>" . formatSizeUnits(filesize("uploads/". $name)) . "</td>";
+					echo "<td title=". $file['name'] .">" . "<a download href=\"uploads/". $file['name'] . "\">" . $file['name'] . "</a></td>";
+					echo "<td>" . date("d F Y",filemtime("uploads/". $file['name'])) . "</td>";
+					echo "<td>" . formatSizeUnits(filesize("uploads/". $file['name'])) . "</td>";
 					echo "</tr>";
 					$i++;
 				}
 			?>
 			</table>
-		</div>
-
-		<div  class="box">
-			<div class="my_wrapper">
-			<form action="data.php" method="post" enctype="multipart/form-data">
-				<p><input type="submit" class="mybutton getdata" value="Dumped Text" name="submit"></p>
-			</form>
-			<form action="main.php" method="post" enctype="multipart/form-data">
-				<p><input type="submit" class="mybutton getdata" value="⬅️  Back To Main" name="submit"></p>
-			</form>
-			<form action="logout.php" method="post" enctype="multipart/form-data">
-				<p><input type="submit" class="mybutton logout" value="Logout" name="submit"></p>
-			</form>
-			</div>
-		</div>
-
 	</div>
-	<footer>Copyright Abdul Inc. 2018</footer>
-
+	<hr>
+	<footer class="footer">Copyright Abdul Inc. 2018</footer>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
-?>
